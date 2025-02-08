@@ -5,7 +5,7 @@ a = Analysis(
     ['ReliveIRFix.py'],
     pathex=[],
     binaries=[],
-    datas=[],
+    datas=[('Fix_AMD_ReLive_Monitor.vbs', '.'), ('ForceRefresh.bat', '.')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
@@ -35,4 +35,5 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
+    icon=['icon.ico'],
 )

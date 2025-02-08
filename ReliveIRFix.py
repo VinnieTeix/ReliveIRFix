@@ -4,8 +4,16 @@ import winreg
 import tkinter as tk
 from tkinter import messagebox
 
-# Path to the VBS script (change this to your actual path)
-VBS_PATH = r"D:\Programs\ReliveIRFix\Fix_AMD_ReLive_Monitor.vbs"
+# Detect if running as a PyInstaller EXE
+if getattr(sys, 'frozen', False):
+    BASE_DIR = sys._MEIPASS  # Temporary folder where files are extracted
+else:
+    BASE_DIR = os.path.dirname(__file__)  # Normal script folder
+
+# Paths to the VBS and BAT scripts
+VBS_PATH = os.path.join(BASE_DIR, "Fix_AMD_ReLive_Monitor.vbs")
+BAT_PATH = os.path.join(BASE_DIR, "ForceRefresh.bat")
+
 REGISTRY_KEY = "Software\Microsoft\Windows\CurrentVersion\Run"
 ENTRY_NAME = "FixReLiveMonitor"
 
